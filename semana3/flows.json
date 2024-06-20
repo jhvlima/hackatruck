@@ -1,0 +1,369 @@
+[
+    {
+        "id": "8ca3cf17f9599e7e",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "22320160e16dce83",
+        "type": "http in",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "url": "create",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "bda89254799aa9f5",
+                "f677e42cffe217be"
+            ]
+        ]
+    },
+    {
+        "id": "e776226d0dbc012b",
+        "type": "http response",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "78baee1e887c7a08",
+        "type": "http in",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "url": "update",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 400,
+        "wires": [
+            [
+                "3f53673ba6970fca"
+            ]
+        ]
+    },
+    {
+        "id": "952b668dc7c54de0",
+        "type": "http response",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3f53673ba6970fca",
+        "type": "cloudantplus out",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "cloudant": "80345c800c599517",
+        "database": "amadeus",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 380,
+        "y": 400,
+        "wires": [
+            [
+                "952b668dc7c54de0",
+                "fbfbd3f25c8ad520"
+            ]
+        ]
+    },
+    {
+        "id": "874d1848d073b40f",
+        "type": "http in",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "url": "delete",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 520,
+        "wires": [
+            [
+                "b50bfbd2bf81ed12",
+                "e9a95f1e5fcc6c19"
+            ]
+        ]
+    },
+    {
+        "id": "b472141bf4886b5f",
+        "type": "http in",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "url": "read",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 620,
+        "wires": [
+            [
+                "c5ba909d8132f1fb"
+            ]
+        ]
+    },
+    {
+        "id": "d5895bf6899e07b9",
+        "type": "http response",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "67802ec581a7f569",
+        "type": "http response",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "bda89254799aa9f5",
+        "type": "debug",
+        "z": "8ca3cf17f9599e7e",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f677e42cffe217be",
+        "type": "cloudantplus out",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "cloudant": "80345c800c599517",
+        "database": "amadeus",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "e776226d0dbc012b"
+            ]
+        ]
+    },
+    {
+        "id": "c5ba909d8132f1fb",
+        "type": "cloudantplus in",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "cloudant": "80345c800c599517",
+        "database": "amadeus",
+        "service": "_ext_",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 380,
+        "y": 620,
+        "wires": [
+            [
+                "67802ec581a7f569",
+                "1002fe9778253f22"
+            ]
+        ]
+    },
+    {
+        "id": "b50bfbd2bf81ed12",
+        "type": "cloudantplus out",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "cloudant": "80345c800c599517",
+        "database": "amadeus",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "delete",
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "d5895bf6899e07b9",
+                "275e5fceb322a886"
+            ]
+        ]
+    },
+    {
+        "id": "1002fe9778253f22",
+        "type": "debug",
+        "z": "8ca3cf17f9599e7e",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "fbfbd3f25c8ad520",
+        "type": "debug",
+        "z": "8ca3cf17f9599e7e",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "275e5fceb322a886",
+        "type": "debug",
+        "z": "8ca3cf17f9599e7e",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e9a95f1e5fcc6c19",
+        "type": "debug",
+        "z": "8ca3cf17f9599e7e",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "18c264aaf7e5c15f",
+        "type": "http in",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "url": "multCreate",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 740,
+        "wires": [
+            [
+                "5724dc7dc5d679df",
+                "a28ed8f757e2d60a"
+            ]
+        ]
+    },
+    {
+        "id": "c87f1904ec5e8cb7",
+        "type": "http response",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "5724dc7dc5d679df",
+        "type": "debug",
+        "z": "8ca3cf17f9599e7e",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "ab8f35c880ab963f",
+        "type": "cloudantplus out",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "cloudant": "80345c800c599517",
+        "database": "amadeus",
+        "service": "_ext_",
+        "payonly": true,
+        "operation": "insert",
+        "x": 540,
+        "y": 740,
+        "wires": [
+            [
+                "c87f1904ec5e8cb7"
+            ]
+        ]
+    },
+    {
+        "id": "a28ed8f757e2d60a",
+        "type": "split",
+        "z": "8ca3cf17f9599e7e",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 390,
+        "y": 740,
+        "wires": [
+            [
+                "ab8f35c880ab963f"
+            ]
+        ]
+    },
+    {
+        "id": "80345c800c599517",
+        "type": "cloudantplus",
+        "host": "https://3e3afcde-b7e3-44b2-845e-40261f160a03-bluemix.cloudantnosqldb.appdomain.cloud",
+        "name": "joaoLima",
+        "useapikey": true
+    }
+]
